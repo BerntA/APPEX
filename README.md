@@ -22,3 +22,12 @@ Ensure that node.JS v18.20.6 or higher is installed
 - npm install
 - npm run dev (npm run build for prod)
 - Ensure that the front-end points to the back-end url, open vite.config.js and verify the proxy setting
+
+## File structure
+Standard client / server setup, refrained from using router / views due to simplicity @ front-end, as for the back-end:
+- shared lib project to allow easier unit testing if included in the future
+- database project to keep the EF ecosystem separated from the rest of the app, and for tidiness
+- app project contains controllers and startup logic
+
+## Disclaimer
+Utilized Vuetify instead of tailwind styling, even for a simple project like this it gets very ugly, repetitive and with no components, you end up reinventing the wheel for no apparent reason, other than torturing yourself.

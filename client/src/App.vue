@@ -47,7 +47,9 @@
         </v-card>
 
         <v-card title="Mine kunder" class="ma-2 pa-2 mt-6">
-          <v-data-table :headers="customerTableHeaders" :items="customers" density="compact" items-per-page="10" hover
+          <v-text-field v-model="customerFilter" label="Filter" density="compact" prepend-inner-icon="mdi-magnify" variant="outlined" hide-details single-line>
+          </v-text-field>
+          <v-data-table :headers="customerTableHeaders" :items="customers" :search="customerFilter" density="compact" items-per-page="10" hover
             show-expand>
             <template v-slot:item.action="{ item }">
               <v-icon class="me-2" size="small" title="Fjern" @click="openDeleteDialog(item)">
@@ -78,6 +80,7 @@ export default {
   data() {
     return {
       search: '',
+      customerFilter: '',
       loading: false,
       companies: [],
       customers: [],
