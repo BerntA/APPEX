@@ -81,10 +81,10 @@ export default {
       this.companyDialog = true
     },
     closeCompanyDialog() {
-      this.activeItem = null
       this.companyDialog = false
     },
     async upsertCustomer(item) {
+      this.closeCompanyDialog()
       this.loading = true
       const payload = {
         organizationNumber: item.organisasjonsnummer,
@@ -92,7 +92,6 @@ export default {
         note: this.note,
       }
       await this.$store.dispatch('upsertCustomer', payload)
-      this.companyDialog = false
       this.loading = false
     },
     async searchForCompanies() {

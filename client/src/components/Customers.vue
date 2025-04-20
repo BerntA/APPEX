@@ -87,16 +87,16 @@ export default {
       this.removeConfirmDialog = false
     },
     async removeCustomer(item) {
+      this.closeEditDialog()
       this.loading = true
       await this.$store.dispatch('removeCustomer', item)
-      this.closeEditDialog()
       this.loading = false
     },
     async upsertCustomer(item) {
+      this.closeEditDialog()
       this.loading = true
       item.note = this.note
       await this.$store.dispatch('upsertCustomer', item)
-      this.closeEditDialog()
       this.loading = false
     },
   },
